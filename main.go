@@ -172,7 +172,7 @@ func mainerr() error {
 				}
 			}
 
-			gobinCache = filepath.Join(md, ".gobincache")
+			gobinCache = filepath.Join(md, ".gobincache", runtime.Version())
 
 		} else {
 			ucd, err := os.UserCacheDir()
@@ -180,7 +180,7 @@ func mainerr() error {
 				return fmt.Errorf("failed to determine user cache dir: %v", err)
 			}
 
-			gobinCache = filepath.Join(ucd, "gobin")
+			gobinCache = filepath.Join(ucd, "gobin", runtime.Version())
 		}
 	}
 
